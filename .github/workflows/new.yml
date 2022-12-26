@@ -9,8 +9,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: windows-latest
-    env:
-      PATH: "${env:PATH};C:/Program Files/Velero"
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -32,7 +30,7 @@ jobs:
        curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero.exe -o velero.exe
     - name: Check PATH
       run: |
-       setx PATH "%PATH%;%CD%"
+       setx PATH "C:\Program Files\PowerShell\7\pwsh.EXE"
     - name: Install velero in eks
       run:  
         velero install --provider aws --plugins velero/velero-plugin-for-aws:v1.2.0 --bucket awseksbackup12 --backup-location-config region=us-east-1 --snapshot-location-config region=us-east-1 --no-secret 
