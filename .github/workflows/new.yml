@@ -28,6 +28,7 @@ jobs:
     - name: Download Velero
       run: |
        curl -LO https://github.com/vmware-tanzu/velero/releases/download/v1.6.3/velero-v1.6.3-windows-amd64.exe
+       mkdir "C:\Program Files\Velero"
        xcopy velero-v1.6.3-windows-amd64.exe "C:\Program Files\Velero"
     - name: Install velero in eks
       run:  
