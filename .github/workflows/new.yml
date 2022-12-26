@@ -27,9 +27,8 @@ jobs:
        aws eks update-kubeconfig --region us-east-1 --name velero
     - name: Download Velero
       run: |
-       curl -LO https://github.com/vmware-tanzu/velero/releases/download/v1.6.3/velero-v1.6.3-windows-amd64.zip
-       unzip velero-v1.6.3-windows-amd64.zip
-       xcopy velero.exe "C:\Program Files\Velero"
+       curl -LO https://github.com/vmware-tanzu/velero/releases/download/v1.6.3/velero-v1.6.3-windows-amd64.exe
+       xcopy velero-v1.6.3-windows-amd64.exe "C:\Program Files\Velero"
     - name: Install velero in eks
       run:  
         velero install --provider aws --plugins velero/velero-plugin-for-aws:v1.2.0 --bucket awseksbackup12 --backup-location-config region=us-east-1 --snapshot-location-config region=us-east-1 --no-secret 
