@@ -28,7 +28,6 @@ jobs:
     - name: Download Velero
       run: |
        curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero.exe -o velero.exe
-       where velero.exe
        setx PATH C:\Program Files\PowerShell\7\pwsh.EXE
     - name: Install velero in eks
       run:  
