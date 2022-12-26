@@ -22,4 +22,13 @@ jobs:
     - name: Install and configure kubectl
       run:
          curl.exe -LO "https://dl.k8s.io/release/v1.26.0/bin/windows/amd64/kubectl.exe"
+    - name: Update Kubeconfig File
+      run:
+       aws eks update-kubeconfig --region us-east-1 --name velero
+    - name: Download Velero
+      run: 
+       curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero.exe -o velero.exe
+    - name: Add Velero to PATH
+      run:
+        setx PATH "%PATH%;%CD%"
       
