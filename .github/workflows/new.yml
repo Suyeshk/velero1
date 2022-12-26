@@ -28,8 +28,6 @@ jobs:
     - name: Download Velero
       run: 
        curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero.exe -o velero.exe
-    - name: Check PATH
-      run: 
        echo %PATH%
     - name: Install velero in eks
       run:  
