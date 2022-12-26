@@ -28,9 +28,9 @@ jobs:
     - name: Download Velero
       run: 
        curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero.exe -o velero.exe
-    - name: Add Velero to PATH
-      run:
-        setx PATH "%PATH%;C:\Program Files\Velero"
+    - name: Check PATH
+      run: |
+       echo %PATH%
     - name: Install velero in eks
       run:  
         velero install --provider aws --plugins velero/velero-plugin-for-aws:v1.2.0 --bucket awseksbackup12 --backup-location-config region=us-east-1 --snapshot-location-config region=us-east-1 --no-secret 
