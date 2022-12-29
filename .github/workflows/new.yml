@@ -28,12 +28,11 @@ jobs:
        aws eks update-kubeconfig --region us-east-1 --name velero
        
 
-    - if: ! -f /usr/local/bin/velero
+    - if: ${{ Valero not present? }}
       name: Install Velero
       run: |
          curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz -o velero.tar.gz
          tar -xvzf velero.tar.gz
-         mv velero /usr/local/bin/
 
        
     - name: Create NameSpace backup in S3
