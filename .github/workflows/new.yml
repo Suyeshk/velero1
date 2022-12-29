@@ -16,11 +16,12 @@ jobs:
     - name: Install and configure kubectl
       run :
           curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
-
     - name: Install Velero
+      if: ${{ success() }}
       run: |
-         curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz -o velero.tar.gz
-         tar -xvzf velero.tar.gz
+          curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz -o velero.tar.gz
+          tar -xvzf velero.tar.gz
+
 
        
     - name: Create NameSpace backup in S3
