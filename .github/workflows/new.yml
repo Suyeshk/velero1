@@ -17,12 +17,6 @@ jobs:
       run :
           curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
 
-    - name: Update Kubeconfig File
-      run:
-       aws eks update-kubeconfig --region us-east-1 --name velero
-       
-
-
     - name: Install Velero
       run: |
          curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz -o velero.tar.gz
