@@ -23,5 +23,4 @@ jobs:
           
           curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz -o velero.tar.gz
           tar -xvzf velero.tar.gz
-          mv velero /usr/local/bin/
 
