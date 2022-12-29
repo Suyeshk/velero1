@@ -9,8 +9,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    env :
-      REGION_NAME:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -21,8 +19,7 @@ jobs:
         aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region: region-name
-    - name: Install and configure kubectl
-      run :
+
 
     - name: Update Kubeconfig File
       run:
