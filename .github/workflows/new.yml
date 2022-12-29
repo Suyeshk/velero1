@@ -18,9 +18,9 @@ jobs:
           curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
 
       - name: Install Velero
-        
+        if: ${{ present() }}
         run: |
-          if: ! -f /usr/local/bin/velero
+          
           curl -L https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz -o velero.tar.gz
           tar -xvzf velero.tar.gz
           mv velero /usr/local/bin/
